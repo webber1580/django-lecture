@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Группы{% endblock %}
+
+{% block main %}
+    <h1>Просмотри информации по {{ group.id }} группе</h1>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">Id</dt>
+        <dd class = "col-sm-10">{{ group.id }}</dd>
+        <dt class = "col-sm-2">Имя</dt>
+        <dd class = "col-sm-10">{{ group.name }}</dd>
+    </dl>
+{% endblock %}

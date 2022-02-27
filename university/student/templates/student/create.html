@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}Студенты{% endblock %}
+
+{% block main %}
+    <h1>Добавление студента</h1>
+    <div class="row">
+        <form class="col-md-4" method="post">
+            {% csrf_token %}
+            {{ form.name }}
+            {{ form.surname }}
+            {{ form.age }}
+            {{ form.group_id }}
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <span class="text-danger">{{ error }}</span>
+        </form>
+    </div>
+{% endblock %}

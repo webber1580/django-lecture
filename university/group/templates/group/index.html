@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block title %}Группы{% endblock %}
+
+{% block main %}
+    <h1>Всего групп - {{ collection_size }}</h1>
+    <a href="{% url 'group_create' %}">Create New</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Номер группы</th>
+                <th>Название группы</th>
+                <th>Размер</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for elem in collection %}
+                <tr>
+                    <td>{{ elem.id }}</td>
+                    <td>{{ elem.name }}</td>
+                    <td>{{ elem.size }}</td>
+                    <td>
+                        <a href="{% url 'group_edit' elem.id %}">Edit</a> |
+                        <a href="{% url 'group_details' elem.id %}">Details</a> |
+                        <a href="{% url 'group_delete' elem.id %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

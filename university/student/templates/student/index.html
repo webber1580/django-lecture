@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}Студенты{% endblock %}
+
+{% block main %}
+    <h1>Всего студентов - {{ collection_size }}</h1>
+    <a href="{% url 'student_create' %}">Create New</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Номер студента</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Возраст</th>
+                <th>Номер группы</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for elem in collection %}
+                <tr>
+                    <td>{{ elem.id }}</td>
+                    <td>{{ elem.name }}</td>
+                    <td>{{ elem.surname }}</td>
+                    <td>{{ elem.age }}</td>
+                    <td>{{ elem.group_id }}</td>
+                    <td>
+                        <a href="{% url 'student_edit' %}">Edit</a> |
+                        <a href="{% url 'student_details' %}">Details</a> |
+                        <a href="{% url 'student_delete' %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
