@@ -38,23 +38,6 @@ def details(request, pk):
     return render(request, 'group/details.html', data)
 
 
-# def edit(request, pk):
-#     group = Group.objects.get(id=pk)
-#     if request.method == 'PUT':
-#         form = GroupForm(request.PUT)
-#         if form.is_valid():
-#             group.name = form.cleaned_data['name']
-#             group.save()
-#             return redirect('group')
-#         else:
-#             error = "Ошибка в заполнении формы"
-#
-#     data = {
-#         'form': GroupForm(group),
-#         'error': '',
-#     }
-#     return render(request, 'group/create.html', data)
-
 class GroupUpdateView(UpdateView):
     model = Group
     template_name = 'group/edit.html'
@@ -65,7 +48,3 @@ class GroupDeleteView(DeleteView):
     model = Group
     template_name = 'group/delete.html'
     success_url = '/group'
-
-
-def delete(request):
-    return render(request, 'group/index.html')

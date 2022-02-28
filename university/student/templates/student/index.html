@@ -25,9 +25,9 @@
                     <td>{{ elem.age }}</td>
                     <td>{{ elem.group_id }}</td>
                     <td>
-                        <a href="{% url 'student_edit' %}">Edit</a> |
-                        <a href="{% url 'student_details' %}">Details</a> |
-                        <a href="{% url 'student_delete' %}">Delete</a>
+                        <a href="{% url 'student_edit' elem.id %}">Edit</a> |
+                        <a href="{% url 'student_details' elem.id %}">Details</a> |
+                        <a href="{% url 'student_delete' elem.id %}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

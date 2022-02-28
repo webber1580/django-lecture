@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}туденты{% endblock %}
+
+{% block main %}
+    <h1>Удаление студента {{ student.name }} {{ student.surname }}</h1>
+    <div class="row">
+        <form class="col-md-4" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Удалить студента</button>
+        </form>
+    </div>
+{% endblock %}
